@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package pokemon.v1;
+
+option go_package = "go_connect/gen/pokemon/v1;pokemonv1";
+
+message PokemonRequest {
+  int32 id = 1;
+}
+
+message PokemonResponse {
+  int32 id = 1;
+  string name = 2;
+  int32 base_experience = 3;
+  int32 height = 4;
+  bool is_default = 5;
+  int32 order = 6;
+  int32 weight = 7;
+}
+
+service PokemonService {
+  rpc FetchPokemon(PokemonRequest) returns (PokemonResponse) {}
+}
